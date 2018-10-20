@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class ViewController: BaseViewController {
+class ArticleViewController: BaseViewController {
     
     @IBOutlet weak var articleTableView: ArticleTableView!
     let reachability = Reachability()!
@@ -28,7 +28,7 @@ class ViewController: BaseViewController {
     }
 }
 
-extension ViewController: ArticlesNetworkManagerDelegate {
+extension ArticleViewController: ArticlesNetworkManagerDelegate {
     
     func getData()  {
         if reachability.connection != .none {
