@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import SVProgressHUD
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
     
     @IBOutlet weak var articleTableView: ArticleTableView!
     let reachability = Reachability()!
+    var isRefreshControl: Bool = false
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        
+        self.articleTableView.addSubview(refreshControl)
+        getData()
+    }
+    
+    @objc override func handleRefresh() {
+        isRefreshControl = true
         getData()
     }
 }
@@ -23,7 +32,7 @@ extension ViewController: ArticlesNetworkManagerDelegate {
     
     func getData()  {
         if reachability.connection != .none {
-            // Utils().showIndicator()
+            if isRefreshControl == false { SVProgressHUD.show() }
             let articleNetworkManager = ArticlesNetworkManager(withDelegate: self, requestData: nil)
             articleNetworkManager.makeArticlesServiceCall()
         }
@@ -33,16 +42,16 @@ extension ViewController: ArticlesNetworkManagerDelegate {
     }
     
     func getSuccessResponse(_ response: Any) {
+        self.refreshControl.endRefreshing()
+        SVProgressHUD.dismiss()
         if let articleModelController = response as? ArticleModelController {
             self.articleTableView.arrData = articleModelController.articles
             self.articleTableView.reloadData()
-//            performUIUpdatesOnMain {
-//                self.articleTableView.reloadData()
-//            }
         }
     }
     
     func getErrorResponse(_ response: Any) {
-        Logger.debugLog(response)
+        self.refreshControl.endRefreshing()
+        SVProgressHUD.dismiss()
     }
 }
