@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArticleModel: BaseModel {
+class ArticleModel: CellRepresentable, BaseModel {
     
     // MARK: Model JSON Keys
     
@@ -62,6 +62,14 @@ class ArticleModel: BaseModel {
         self.abstract = dictionary?[PropertyKey.Abstract] as? String ?? ""
         self.publishedDate = dictionary?[PropertyKey.PublishedDate] as? String ?? ""
         self.byLine = dictionary?[PropertyKey.ByLine] as? String ?? ""
+    }
+    
+    // MARK: CellRepresentable Protocol Implementation
+    
+    func cellInstance(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as! ArticleTableViewCell
+        cell.configureCell(article: self)
+        return cell
     }
 
 }

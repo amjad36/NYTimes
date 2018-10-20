@@ -1,24 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iS6-RI-XHe">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--NY Times Most Popular-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NYTimes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NWA-OM-6Fj" customClass="ArticleTableView" customModule="NYTimes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ArticleTableViewCell" rowHeight="100" id="gV7-7c-EVC" customClass="ArticleTableViewCell" customModule="NYTimes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gV7-7c-EVC" id="FGh-uI-5Me">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOo-Ww-ss0">
+                                                    <rect key="frame" x="64" y="16" width="266" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by line" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igk-Yz-dAz">
+                                                    <rect key="frame" x="64" y="43.5" width="266" height="19"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="published date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mc-Xb-Gvr">
+                                                    <rect key="frame" x="12" y="70.5" width="318" height="19"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2B-Au-ste">
+                                                    <rect key="frame" x="12" y="30" width="40" height="40"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="HBn-xr-P8A"/>
+                                                        <constraint firstAttribute="width" constant="40" id="jZi-zE-ON6"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="igk-Yz-dAz" firstAttribute="leading" secondItem="W2B-Au-ste" secondAttribute="trailing" constant="12" id="0aN-ia-nPT"/>
+                                                <constraint firstAttribute="trailing" secondItem="igk-Yz-dAz" secondAttribute="trailing" constant="12" id="9mV-t9-ZgI"/>
+                                                <constraint firstAttribute="trailing" secondItem="2Mc-Xb-Gvr" secondAttribute="trailing" constant="12" id="MaX-P6-xHh"/>
+                                                <constraint firstItem="2Mc-Xb-Gvr" firstAttribute="top" secondItem="igk-Yz-dAz" secondAttribute="bottom" constant="8" id="Maf-5q-F3g"/>
+                                                <constraint firstItem="2Mc-Xb-Gvr" firstAttribute="leading" secondItem="FGh-uI-5Me" secondAttribute="leading" constant="12" id="ZVG-ag-Yru"/>
+                                                <constraint firstItem="W2B-Au-ste" firstAttribute="leading" secondItem="FGh-uI-5Me" secondAttribute="leading" constant="12" id="aiI-gX-kPI"/>
+                                                <constraint firstItem="W2B-Au-ste" firstAttribute="centerY" secondItem="FGh-uI-5Me" secondAttribute="centerY" id="bJK-v9-hHs"/>
+                                                <constraint firstItem="igk-Yz-dAz" firstAttribute="top" secondItem="MOo-Ww-ss0" secondAttribute="bottom" constant="8" id="e09-M6-NZM"/>
+                                                <constraint firstAttribute="bottom" secondItem="2Mc-Xb-Gvr" secondAttribute="bottom" constant="10" id="h2F-UB-l4n"/>
+                                                <constraint firstAttribute="trailing" secondItem="MOo-Ww-ss0" secondAttribute="trailing" constant="12" id="jNX-j0-Mti"/>
+                                                <constraint firstItem="MOo-Ww-ss0" firstAttribute="top" secondItem="FGh-uI-5Me" secondAttribute="top" constant="16" id="nYu-cB-lAi"/>
+                                                <constraint firstItem="MOo-Ww-ss0" firstAttribute="leading" secondItem="W2B-Au-ste" secondAttribute="trailing" constant="12" id="xOu-wn-FGa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblByLine" destination="igk-Yz-dAz" id="IOA-7f-jgt"/>
+                                            <outlet property="lblPublishedDate" destination="2Mc-Xb-Gvr" id="fTk-IS-8dn"/>
+                                            <outlet property="lblTitle" destination="MOo-Ww-ss0" id="E0T-3Q-omO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NWA-OM-6Fj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Cu4-4C-xzq"/>
+                            <constraint firstItem="NWA-OM-6Fj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P8U-pt-Cki"/>
+                            <constraint firstItem="NWA-OM-6Fj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WUx-1N-iLn"/>
+                            <constraint firstItem="NWA-OM-6Fj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lNF-ZU-Xlz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="NY Times Most Popular" id="SYQ-Jz-Z8E">
+                        <barButtonItem key="leftBarButtonItem" image="menu-alt" id="Eld-E2-x4N">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="search-icon" id="wBp-aM-VQa">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="articleTableView" destination="NWA-OM-6Fj" id="cVJ-QE-1ui"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="860" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SUX-bA-ing">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iS6-RI-XHe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1xv-d2-xKD">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UyF-Gn-575"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="myO-Mv-Gix" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="126" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu-alt" width="56" height="56"/>
+        <image name="search-icon" width="56" height="56"/>
+    </resources>
 </document>
