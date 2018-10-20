@@ -31,8 +31,8 @@ class ArticlesNetworkManager: NetworkDelegate {
     func getSuccessResponse(_ response: Any) {
         do {
             let data = try JSONSerialization.data(withJSONObject: response, options: .prettyPrinted)
-            // let responseModel = ContactSubmitResponseModel.createInstanceFromData(data) as Any
-            // self.delegate?.getSuccessResponse(responseModel)
+            let responseModel = ArticleModelController.createInstanceFromData(data) as Any
+            self.delegate?.getSuccessResponse(responseModel)
         } catch  {
             print("error = \(error.localizedDescription)")
         }

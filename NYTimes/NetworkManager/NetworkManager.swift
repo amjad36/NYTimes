@@ -26,14 +26,14 @@ protocol NetworkDelegate : class {
 }
 
 class NetworkManager: NSObject {
-
+    
     func createRequest(_ url : String , httpMethod : HttpMethods, body: Data? , accessToken: String , contentType: HttpHeaders , networkDelegate : NetworkDelegate)  {
         
-        let urlToCall = URL(string: url)
-        var request = URLRequest(url: urlToCall!)
+        let requestUrl = URL(string: Constants.Url + url)
+        var request = URLRequest(url: requestUrl!)
+        
         request.httpMethod = httpMethod.rawValue
-        request.setValue(contentType.rawValue, forHTTPHeaderField: HttpHeaders.contentType.rawValue)
-        request.setValue(accessToken, forHTTPHeaderField: HttpHeaders.authorization.rawValue)
+        request.setValue(accessToken, forHTTPHeaderField: HttpHeaders.api_key.rawValue)
         
         if httpMethod == HttpMethods.post {
             request.httpBody = body
@@ -54,7 +54,7 @@ class NetworkManager: NSObject {
                 performUIUpdatesOnMain {
                     networkDelegate.getSuccessResponse(json)
                 }
-            }catch {
+            } catch {
                 performUIUpdatesOnMain {
                     networkDelegate.getSuccessResponse(dic)
                 }
