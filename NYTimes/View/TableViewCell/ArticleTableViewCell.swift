@@ -25,5 +25,4 @@ class ArticleTableViewCell: UITableViewCell {
         self.lblByLine.text = article.byLine
         self.lblPublishedDate.text = "📅" + " " + (article.publishedDate ?? "")
     }
-
 }
