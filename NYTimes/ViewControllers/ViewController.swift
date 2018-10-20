@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var articleTableView: ArticleTableView!
     let reachability = Reachability()!
-    var articlesArr: [ArticleModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -34,7 +34,11 @@ extension ViewController: ArticlesNetworkManagerDelegate {
     
     func getSuccessResponse(_ response: Any) {
         if let articleModelController = response as? ArticleModelController {
-            self.articlesArr = articleModelController.articles
+            self.articleTableView.arrData = articleModelController.articles
+            self.articleTableView.reloadData()
+//            performUIUpdatesOnMain {
+//                self.articleTableView.reloadData()
+//            }
         }
     }
     
