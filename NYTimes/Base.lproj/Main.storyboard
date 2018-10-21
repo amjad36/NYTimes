@@ -80,6 +80,7 @@
                                             <outlet property="lblByLine" destination="igk-Yz-dAz" id="IOA-7f-jgt"/>
                                             <outlet property="lblPublishedDate" destination="2Mc-Xb-Gvr" id="fTk-IS-8dn"/>
                                             <outlet property="lblTitle" destination="MOo-Ww-ss0" id="E0T-3Q-omO"/>
+                                            <segue destination="4tZ-eB-m8A" kind="show" id="9Xe-pr-l5Y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -108,7 +109,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="132.68365817091455"/>
+            <point key="canvasLocation" x="886" y="133"/>
+        </scene>
+        <!--Article Detail View Controller-->
+        <scene sceneID="adu-6Z-pKZ">
+            <objects>
+                <viewController storyboardIdentifier="ArticleDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4tZ-eB-m8A" customClass="ArticleDetailViewController" customModule="NYTimes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wyT-v7-32v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGL-Qe-idQ">
+                                <rect key="frame" x="16" y="88" width="343" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="abstract" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbK-GQ-VN1">
+                                <rect key="frame" x="16" y="163" width="343" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="published date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPy-Gb-Zd6">
+                                <rect key="frame" x="16" y="128" width="343" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="published by" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOG-fP-3MK">
+                                <rect key="frame" x="16" y="197" width="343" height="17.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="G0g-V4-fLd" firstAttribute="trailing" secondItem="KGL-Qe-idQ" secondAttribute="trailing" constant="16" id="2gZ-3V-Mah"/>
+                            <constraint firstItem="G0g-V4-fLd" firstAttribute="trailing" secondItem="MOG-fP-3MK" secondAttribute="trailing" constant="16" id="7j0-lW-WzY"/>
+                            <constraint firstItem="PbK-GQ-VN1" firstAttribute="leading" secondItem="G0g-V4-fLd" secondAttribute="leading" constant="16" id="8wN-Rw-ckN"/>
+                            <constraint firstItem="G0g-V4-fLd" firstAttribute="trailing" secondItem="PbK-GQ-VN1" secondAttribute="trailing" constant="16" id="HrU-b0-noM"/>
+                            <constraint firstItem="MOG-fP-3MK" firstAttribute="top" secondItem="PbK-GQ-VN1" secondAttribute="bottom" constant="16" id="IJk-0R-Ubu"/>
+                            <constraint firstItem="KGL-Qe-idQ" firstAttribute="leading" secondItem="G0g-V4-fLd" secondAttribute="leading" constant="16" id="Rqg-Da-dqc"/>
+                            <constraint firstItem="MOG-fP-3MK" firstAttribute="leading" secondItem="G0g-V4-fLd" secondAttribute="leading" constant="16" id="ZWP-X2-1xB"/>
+                            <constraint firstItem="G0g-V4-fLd" firstAttribute="trailing" secondItem="bPy-Gb-Zd6" secondAttribute="trailing" constant="16" id="aLr-PL-5tW"/>
+                            <constraint firstItem="PbK-GQ-VN1" firstAttribute="top" secondItem="bPy-Gb-Zd6" secondAttribute="bottom" constant="16" id="aXd-2y-vQG"/>
+                            <constraint firstItem="KGL-Qe-idQ" firstAttribute="top" secondItem="G0g-V4-fLd" secondAttribute="top" constant="24" id="kHj-wp-bff"/>
+                            <constraint firstItem="bPy-Gb-Zd6" firstAttribute="leading" secondItem="G0g-V4-fLd" secondAttribute="leading" constant="16" id="nK8-xG-Dat"/>
+                            <constraint firstItem="bPy-Gb-Zd6" firstAttribute="top" secondItem="KGL-Qe-idQ" secondAttribute="bottom" constant="16" id="tE9-Dj-kQN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G0g-V4-fLd"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblArticleAbstract" destination="PbK-GQ-VN1" id="mUV-gL-pdW"/>
+                        <outlet property="lblArticleTitle" destination="KGL-Qe-idQ" id="Ynd-lu-tRf"/>
+                        <outlet property="lblPublishedBy" destination="MOG-fP-3MK" id="1vn-aa-zdk"/>
+                        <outlet property="lblPublishedDate" destination="bPy-Gb-Zd6" id="cO8-tX-ga7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hrs-aA-eaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1653.5999999999999" y="132.68365817091455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SUX-bA-ing">
@@ -126,7 +188,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myO-Mv-Gix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="133"/>
+            <point key="canvasLocation" x="113" y="133"/>
         </scene>
     </scenes>
     <resources>

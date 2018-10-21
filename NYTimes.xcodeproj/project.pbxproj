@@ -29,6 +29,7 @@
 		4DEE5741217BDA82006D0C02 /* ArticleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE5740217BDA82006D0C02 /* ArticleTableView.swift */; };
 		4DEE5743217BDB19006D0C02 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE5742217BDB19006D0C02 /* ArticleTableViewCell.swift */; };
 		4DEE5745217BDE15006D0C02 /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE5744217BDE15006D0C02 /* CellRepresentable.swift */; };
+		4DEE574B217BF417006D0C02 /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE574A217BF417006D0C02 /* ArticleDetailViewController.swift */; };
 		D8A6AB406B2C6C2F008DA09D /* Pods_NYTimesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBB3B865E3A298783F44B5E /* Pods_NYTimesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		4DEE5740217BDA82006D0C02 /* ArticleTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableView.swift; sourceTree = "<group>"; };
 		4DEE5742217BDB19006D0C02 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4DEE5744217BDE15006D0C02 /* CellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
+		4DEE574A217BF417006D0C02 /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		568EDE580CDA8E619A3CE90B /* Pods-NYTimesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTimesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NYTimesTests/Pods-NYTimesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B84A8B3A6986C2571EA3EA2 /* Pods_NYTimesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NYTimesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD3CB88F4AFD747229CD8A9 /* Pods-NYTimesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTimesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NYTimesUITests/Pods-NYTimesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			children = (
 				4DEE573B217BD6BD006D0C02 /* BaseViewController.swift */,
 				4D7CA181217A5E140087B6CC /* ArticleViewController.swift */,
+				4DEE574A217BF417006D0C02 /* ArticleDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				4D7CA1B7217BB9440087B6CC /* Logger.swift in Sources */,
 				4D7CA1BD217BBDDA0087B6CC /* ArticlesNetworkManager.swift in Sources */,
 				4DEE5745217BDE15006D0C02 /* CellRepresentable.swift in Sources */,
+				4DEE574B217BF417006D0C02 /* ArticleDetailViewController.swift in Sources */,
 				4DEE5741217BDA82006D0C02 /* ArticleTableView.swift in Sources */,
 				4DEE573C217BD6BD006D0C02 /* BaseViewController.swift in Sources */,
 				4D7CA1E7217BC9430087B6CC /* ArticleModelController.swift in Sources */,
