@@ -13,6 +13,7 @@ class ArticleTableView: UITableView {
     // MARK:- Properties
     
     var arrData: [CellRepresentable]?
+    var selectedItemCell: ((CellRepresentable?) -> ())?
     
     // MARK:- Initializers
     
@@ -62,5 +63,10 @@ extension ArticleTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.selectedItemCell?(arrData?[indexPath.row])
     }
 }

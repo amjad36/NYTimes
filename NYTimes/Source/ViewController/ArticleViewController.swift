@@ -26,6 +26,15 @@ class ArticleViewController: BaseViewController {
         isRefreshControl = true
         getData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destination = segue.destination as? ArticleDetailViewController {
+            if let indexPath = self.articleTableView.indexPathForSelectedRow {
+                destination.article = self.articleTableView.arrData?[indexPath.row] as? ArticleModel
+            }
+        }
+    }
 }
 
 extension ArticleViewController: ArticlesNetworkManagerDelegate {
