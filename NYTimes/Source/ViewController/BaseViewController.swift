@@ -16,11 +16,11 @@ class BaseViewController: UIViewController {
         refreshControl.tintColor = UIColor.red
         return refreshControl
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     @objc func handleRefresh() { }
 
 }
