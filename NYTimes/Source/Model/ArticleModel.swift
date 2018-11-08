@@ -67,9 +67,9 @@ class ArticleModel: CellRepresentable, BaseModel {
     // MARK: CellRepresentable Protocol Implementation
 
     func cellInstance(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as! ArticleTableViewCell
-        cell.configureCell(article: self)
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell
+        cell?.configureCell(article: self)
+        return cell ?? UITableViewCell()
     }
 
 }
