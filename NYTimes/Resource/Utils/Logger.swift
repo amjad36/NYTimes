@@ -20,7 +20,7 @@ func print(_ object: Any) {
 }
 
 class Logger {
-    
+
     private static var isLoggingEnabled: Bool {
         #if DEBUG
         return true
@@ -28,8 +28,7 @@ class Logger {
         return false
         #endif
     }
-    
-    
+
     /// Logs error messages on console
     ///
     /// - Parameters:
@@ -42,8 +41,7 @@ class Logger {
             print("[\(sourceFileName(filePath: filename))]:\(line) \(funcName) -> \(object)")
         }
     }
-    
-    
+
     /// Extract the file name from the file path
     ///
     /// - Parameter filePath: Full file path in bundle
@@ -52,5 +50,5 @@ class Logger {
         let components = filePath.components(separatedBy: "/")
         return components.isEmpty ? "" : components.last!
     }
-    
+
 }

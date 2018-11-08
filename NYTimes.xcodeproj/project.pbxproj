@@ -25,7 +25,8 @@
 		4D7CA1E2217BC4650087B6CC /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA1E1217BC4650087B6CC /* BaseModel.swift */; };
 		4D7CA1E4217BC48C0087B6CC /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA1E3217BC48C0087B6CC /* ArticleModel.swift */; };
 		4D7CA1E7217BC9430087B6CC /* ArticleModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA1E6217BC9430087B6CC /* ArticleModelController.swift */; };
-		4DCBC12621943C1F0019235E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4DCBC12521943C1F0019235E /* README.md */; };
+		4DCBC12821943E260019235E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4DCBC12721943E260019235E /* README.md */; };
+		4DCBC12B219448790019235E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4DCBC12A219448790019235E /* .swiftlint.yml */; };
 		4DEE573C217BD6BD006D0C02 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE573B217BD6BD006D0C02 /* BaseViewController.swift */; };
 		4DEE5741217BDA82006D0C02 /* ArticleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE5740217BDA82006D0C02 /* ArticleTableView.swift */; };
 		4DEE5743217BDB19006D0C02 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE5742217BDB19006D0C02 /* ArticleTableViewCell.swift */; };
@@ -77,7 +78,8 @@
 		4D7CA1E1217BC4650087B6CC /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		4D7CA1E3217BC48C0087B6CC /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		4D7CA1E6217BC9430087B6CC /* ArticleModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModelController.swift; sourceTree = "<group>"; };
-		4DCBC12521943C1F0019235E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		4DCBC12721943E260019235E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		4DCBC12A219448790019235E /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4DEE573B217BD6BD006D0C02 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4DEE5740217BDA82006D0C02 /* ArticleTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableView.swift; sourceTree = "<group>"; };
 		4DEE5742217BDB19006D0C02 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		4D7CA173217A5E140087B6CC = {
 			isa = PBXGroup;
 			children = (
+				4DCBC12A219448790019235E /* .swiftlint.yml */,
 				4D7CA17E217A5E140087B6CC /* NYTimes */,
 				4D7CA193217A5E150087B6CC /* NYTimesTests */,
 				4D7CA19E217A5E150087B6CC /* NYTimesUITests */,
@@ -159,7 +162,7 @@
 				4D7CA183217A5E140087B6CC /* Main.storyboard */,
 				4D7CA186217A5E140087B6CC /* Assets.xcassets */,
 				4D7CA188217A5E150087B6CC /* LaunchScreen.storyboard */,
-				4DCBC12521943C1F0019235E /* README.md */,
+				4DCBC12721943E260019235E /* README.md */,
 				4D7CA18B217A5E150087B6CC /* Info.plist */,
 			);
 			path = NYTimes;
@@ -318,6 +321,7 @@
 				4D7CA179217A5E140087B6CC /* Frameworks */,
 				4D7CA17A217A5E140087B6CC /* Resources */,
 				02C72D27D1ADC756465E6F4B /* [CP] Embed Pods Frameworks */,
+				4DCBC129219440090019235E /* Swiftlink Run Script */,
 			);
 			buildRules = (
 			);
@@ -414,9 +418,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DCBC12B219448790019235E /* .swiftlint.yml in Resources */,
 				4D7CA18A217A5E150087B6CC /* LaunchScreen.storyboard in Resources */,
 				4D7CA187217A5E140087B6CC /* Assets.xcassets in Resources */,
-				4DCBC12621943C1F0019235E /* README.md in Resources */,
+				4DCBC12821943E260019235E /* README.md in Resources */,
 				4D7CA185217A5E140087B6CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +478,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		4DCBC129219440090019235E /* Swiftlink Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftlink Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		BEDC53FC35FDD211DEC9161F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
