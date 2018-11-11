@@ -15,7 +15,7 @@ class ArticleDetailViewController: UIViewController {
     @IBOutlet weak var lblPublishedDate: UILabel!
     @IBOutlet weak var lblPublishedBy: UILabel!
 
-    var article: ArticleModel?
+    var article: Article?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class ArticleDetailViewController: UIViewController {
         //
         // Set details data
         self.lblArticleAbstract.text = article?.abstract
-        self.lblArticleTitle.text = article?.articleTitle
+        self.lblArticleTitle.text = article?.title
         self.lblPublishedBy.text = article?.byLine
         self.lblPublishedDate.text = "📅" + " " + (article?.publishedDate ?? "")
     }

@@ -19,9 +19,9 @@ class ArticleTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func configureCell(article: ArticleModel) {
-        self.lblTitle.text = article.articleTitle
+    func configureCell(article: Article) {
+        self.lblTitle.text = article.title
         self.lblByLine.text = article.byLine
-        self.lblPublishedDate.text = "📅" + " " + (article.publishedDate ?? "")
+        self.lblPublishedDate.text = "📅" + " " + (article.publishedDate)
     }
 }
