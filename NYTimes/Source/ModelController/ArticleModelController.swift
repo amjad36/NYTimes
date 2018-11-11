@@ -8,6 +8,15 @@
 
 import UIKit
 
+class ArticleController: NSObject, Codable {
+    var articles: [Article] = [Article]()
+    enum CodingKeys: String, CodingKey {
+        //Encoding/decoding will only include the properties defined in this enum, rest will be ignored
+        case articles = "results"
+    }
+}
+
+/*
 class ArticleModelController: BaseModel {
 
     // MARK: Model JSON Keys
@@ -43,3 +52,4 @@ class ArticleModelController: BaseModel {
     }
 
 }
+ */

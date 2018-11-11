@@ -49,6 +49,7 @@ class NetworkManager: NSObject {
                 }
                 return
             }
+            /*
             do {
                 let json = try JSONSerialization.jsonObject(with: resData, options: [])
                 performUIUpdatesOnMain {
@@ -58,6 +59,10 @@ class NetworkManager: NSObject {
                 performUIUpdatesOnMain {
                     networkDelegate.getSuccessResponse(dic)
                 }
+            }
+             */
+            performUIUpdatesOnMain {
+                networkDelegate.getSuccessResponse(resData)
             }
 
             }.resume()

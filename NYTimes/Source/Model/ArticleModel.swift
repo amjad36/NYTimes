@@ -8,6 +8,40 @@
 
 import UIKit
 
+class Article: NSObject, Codable {
+    var id: Int = 0
+    var title: String = ""
+    var type: String = ""
+    var abstract: String = ""
+    var byLine: String = ""
+    var publishedDate: String = ""
+    enum CodingKeys: String, CodingKey {
+        //It will replace the respective properties name by assigned string
+        //while encoding to Json format.
+        //Also, while decoding respective Json, these new names are
+        //expected in data rather that that defined in class declaration
+        //will not get renamed
+        case id
+        case title
+        case type
+        case abstract
+        //will get renamed
+        case byLine = "byline"
+        case publishedDate = "published_date"
+    }
+}
+
+extension Article: CellRepresentable {
+
+    func cellInstance(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell
+        cell?.configureCell(article: self)
+        return cell ?? UITableViewCell()
+    }
+
+}
+
+/*
 class ArticleModel: CellRepresentable, BaseModel {
 
     // MARK: Model JSON Keys
@@ -68,8 +102,9 @@ class ArticleModel: CellRepresentable, BaseModel {
 
     func cellInstance(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell
-        cell?.configureCell(article: self)
+        // cell?.configureCell(article: self)
         return cell ?? UITableViewCell()
     }
 
 }
+*/

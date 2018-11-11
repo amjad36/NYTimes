@@ -29,12 +29,21 @@ class ArticlesNetworkManager: NetworkDelegate {
     }
 
     func getSuccessResponse(_ response: Any) {
-        do {
-            let data = try JSONSerialization.data(withJSONObject: response, options: .prettyPrinted)
-            let responseModel = ArticleModelController.createInstanceFromData(data) as Any
-            self.delegate?.getSuccessResponse(responseModel)
-        } catch {
-            print("error = \(error.localizedDescription)")
+        /*
+        guard let dic = response as? [String: Any] else {
+            return
+        }
+        let responseModel = ArticleModelController.createInstanceFromDictionary(dic) as Any
+        self.delegate?.getSuccessResponse(responseModel)
+         */
+        guard let resData = response as? Data else {
+            return
+        }
+        if let articleController = try? JSONDecoder().decode(ArticleController.self, from: resData) {
+            //It will automatically map the json keys to properties name as defined
+            //in ArticleController class and respective CodingKeys enum.
+            print(articleController.articles.count)
+            self.delegate?.getSuccessResponse(articleController)
         }
     }
 

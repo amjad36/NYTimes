@@ -31,7 +31,7 @@ class ArticleViewController: BaseViewController {
 
         if let destination = segue.destination as? ArticleDetailViewController {
             if let indexPath = self.articleTableView.indexPathForSelectedRow {
-                destination.article = self.articleTableView.arrData?[indexPath.row] as? ArticleModel
+                destination.article = self.articleTableView.arrData?[indexPath.row] as? Article
             }
         }
     }
@@ -52,8 +52,8 @@ extension ArticleViewController: ArticlesNetworkManagerDelegate {
     func getSuccessResponse(_ response: Any) {
         self.refreshControl.endRefreshing()
         SVProgressHUD.dismiss()
-        if let articleModelController = response as? ArticleModelController {
-            self.articleTableView.arrData = articleModelController.articles
+        if let articleController = response as? ArticleController {
+            self.articleTableView.arrData = articleController.articles
             self.articleTableView.reloadData()
         }
     }
