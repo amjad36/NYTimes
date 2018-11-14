@@ -11,21 +11,26 @@ import XCTest
 
 class NYTimesTests: XCTestCase {
 
-    var article: ArticleModel?
+    var article: Article?
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
-        let dictionary: [String: Any] = ["id": 100000006160692,
-                                         "title": "Among the Ruins of Mexico Beach Stands One House, Built ‘for the Big One’",
+        let jsonString = """
+            { "id": 100000006160692,
+                                         "title": "Among the Ruins of Mexico Beach Stands One House",
                                          "abstract": "Hurricane Michael wrecked every other beachfront house on the block, but one came through the storm nearly pristine, as if protected by grace. How did it survive?",
                           "type": "Article",
                           "published_date": "2018-10-14",
-                          "byline": "By PATRICIA MAZZEI"]
+                          "byline": "By PATRICIA MAZZEI"}
+ """
 
-        article = ArticleModel.createInstanceFromDictionary(dictionary) as? ArticleModel
+        guard let data = jsonString.data(using: .utf8) else {
+            return
+        }
+        let article = try? JSONDecoder().decode(Article.self, from: data)
         XCTAssertNotNil(article)
-        XCTAssertEqual(article?.articleTitle, "Among the Ruins of Mexico Beach Stands One House, Built ‘for the Big One’")
+        XCTAssertEqual(article?.title, "Among the Ruins of Mexico Beach Stands One House")
     }
 
     override func tearDown() {
